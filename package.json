@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "apollo-server-express": "^2.25.3",
+    "express": "^4.18.1",
+    "micro": "^9.3.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "graphql-project-2",
+  "version": "1.0.0",
+  "main": "resolver.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
