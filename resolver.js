@@ -43,7 +43,7 @@ const customerinfo =
 [
   {
     customer_id: 100,
-    name: "Dumb Mithil Damani and Stupid",
+    name: "Mithil Damani",
     age: 18,
     contact: 7229998855,
     package_id: 2,
