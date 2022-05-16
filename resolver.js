@@ -43,7 +43,7 @@ const customerinfo =
 [
   {
     customer_id: 100,
-    name: " Dumb Mithil Damani",
+    name: "Mithil Damani",
     age: 18,
     contact: 7229998855,
     package_id: 2,
@@ -105,28 +105,35 @@ const resolvers = {
 
 Mutation:
 {
-  createCustomer: (root, {name, age, contact, packageid}) =>
+  createCustomer: async (root, {name, age, contact, packageid}) =>
     {
-      let m = myPackages.filter(package => {
+      let m = await myPackages.filter(package => {
         return package.id === packageid;
       });
+
+     console.log(m);
+     m = m[0];
+    console.log("the maximum capacity is " + m.maxcapacity);
+    console.log("the current capacity is " + m.currentcapacity);
+
 
       if (m.maxcapacity > m.currentcapacity)
       {
         let customer =
         {
-          customer_id: 100 + len(customerinfo),
+          customer_id: 100 + customerinfo.length,
           name: name,
           age: age,
           contact: contact,
-          package_id: packageid
+          package_id: packageid,
         }
         customerinfo.push(customer);
         m.currentcapacity += 1;
-        return customer;
+        // return customer;
       }
       else {
-        return "the given package is booked out !";
+        console.log("the given package is booked out !");
+        throw new Error("no more booking allowed");
       }
     },
 }
